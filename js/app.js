@@ -642,15 +642,93 @@ function initHeroMediaSwap() {
 
 /**
  * Showreel Video Player & Custom Video Loader
+ * Includes a 60fps procedural Kinetic Canvas fallback when media/video/hero-showreel.mp4 is not yet placed on disk
  */
 function initShowreelControls() {
+  const stage = document.getElementById("showreelFrame");
   const video = document.getElementById("heroShowreelVideo");
   const playBtn = document.getElementById("reelPlayBtn");
   const playStatus = document.getElementById("reelPlayStatus");
   const fileInput = document.getElementById("showreelFileInput");
 
+  let canvasAnimId = null;
+  let simCanvas = null;
+  let isSimPlaying = false;
+
+  function startSimulatedReel() {
+    if (!stage) return;
+    if (!simCanvas) {
+      simCanvas = document.createElement("canvas");
+      simCanvas.width = 1280;
+      simCanvas.height = 720;
+      simCanvas.className = "showreel-video media-asset";
+      simCanvas.style.position = "absolute";
+      simCanvas.style.inset = "0";
+      stage.insertBefore(simCanvas, stage.firstChild);
+    }
+    simCanvas.style.display = "block";
+    isSimPlaying = true;
+    const ctx = simCanvas.getContext("2d");
+    let t = 0;
+
+    function renderFrame() {
+      if (!isSimPlaying) return;
+      t += 0.025;
+      const w = simCanvas.width;
+      const h = simCanvas.height;
+
+      ctx.fillStyle = "#0b0b0e";
+      ctx.fillRect(0, 0, w, h);
+
+      // Animated kinetic rings
+      const accent =
+        getComputedStyle(document.documentElement)
+          .getPropertyValue("--accent")
+          .trim() || "#e2b887";
+
+      for (let i = 0; i < 6; i++) {
+        ctx.save();
+        ctx.translate(w / 2, h / 2);
+        ctx.rotate(t * (0.2 + i * 0.07) * (i % 2 === 0 ? 1 : -1));
+        ctx.strokeStyle = accent;
+        ctx.globalAlpha = 0.18 + i * 0.08;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.ellipse(0, 0, 140 + i * 55, 65 + i * 24, 0, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      // Editorial HUD text
+      ctx.fillStyle = accent;
+      ctx.font = "500 16px 'JetBrains Mono', monospace";
+      ctx.fillText(
+        `SIMULATED REEL PREVIEW // TC 00:00:${String(Math.floor((t * 10) % 60)).padStart(2, "0")}:${String(Math.floor((t * 60) % 24)).padStart(2, "0")}`,
+        60,
+        640
+      );
+      ctx.fillStyle = "#f5f5f7";
+      ctx.font = "italic 600 42px 'Cormorant Garamond', Georgia, serif";
+      ctx.fillText("Charlotte Vance — 2026 Motion Showreel", 60, 600);
+
+      canvasAnimId = requestAnimationFrame(renderFrame);
+    }
+    renderFrame();
+  }
+
+  function stopSimulatedReel() {
+    isSimPlaying = false;
+    if (canvasAnimId) cancelAnimationFrame(canvasAnimId);
+  }
+
   playBtn?.addEventListener("click", () => {
     if (!video) return;
+    if (isSimPlaying) {
+      stopSimulatedReel();
+      if (playStatus) playStatus.textContent = "Play Reel / Preview";
+      return;
+    }
+
     if (video.paused) {
       video
         .play()
@@ -658,8 +736,9 @@ function initShowreelControls() {
           if (playStatus) playStatus.textContent = "Pause Showreel";
         })
         .catch(() => {
-          if (playStatus)
-            playStatus.textContent = "Poster Active (Load MP4 in media/video/)";
+          // Fallback to kinetic canvas showreel when MP4 placeholder isn't on disk yet
+          startSimulatedReel();
+          if (playStatus) playStatus.textContent = "Pause Simulated Reel";
         });
     } else {
       video.pause();
@@ -670,6 +749,9 @@ function initShowreelControls() {
   fileInput?.addEventListener("change", (e) => {
     const file = e.target.files?.[0];
     if (!file || !video) return;
+    stopSimulatedReel();
+    if (simCanvas) simCanvas.style.display = "none";
+
     const url = URL.createObjectURL(file);
     if (file.type.startsWith("video/")) {
       video.src = url;

@@ -1,4 +1,4 @@
-name: Test and deploy to GitHub Pages
+name: Validate and deploy to GitHub Pages
 
 on:
   push:
@@ -20,12 +20,28 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      # Pure logic only; the security-rules tests need the Firebase emulator and run locally (tests/rules).
-      - run: node --test "tests/*.test.js"
+      - uses: actions/checkout@v6
+
+      - name: Validate SPA files and profile.json
+        run: |
+          node -e '
+            const fs = require("fs");
+            const requiredPaths = ["index.html", "css/styles.css", "js/app.js", "data/profile.json", "media"];
+            for (const p of requiredPaths) {
+              if (!fs.existsSync(p)) {
+                console.error("Missing required path:", p);
+                process.exit(1);
+              }
+            }
+            const profile = JSON.parse(fs.readFileSync("data/profile.json", "utf8"));
+            for (const key of ["name", "contact", "socials", "mediaItems"]) {
+              if (!(key in profile)) {
+                console.error("Missing key in data/profile.json:", key);
+                process.exit(1);
+              }
+            }
+            console.log("SPA files and data/profile.json validated successfully.");
+          '
 
   deploy:
     needs: test
@@ -35,19 +51,19 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
 
-      # No build step. Publish only what the app needs at runtime, not tests, rules or docs.
+      # Publish only what the portfolio SPA needs at runtime
       - name: Collect the runtime files
         run: |
-          mkdir _site
-          cp -r index.html admin.html student.html css js assets _site/
+          mkdir -p _site
+          cp -r index.html css js data media _site/
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: _site
 
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
