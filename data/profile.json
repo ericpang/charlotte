@@ -1,0 +1,154 @@
+{
+  "name": "Charlotte Vance",
+  "logoText": "CV.",
+  "title": "Creative Designer & Visual Photographer",
+  "tagline": "Crafting visual stories through lens, light, and intentional design.",
+  "bio": "Multidisciplinary art director, graphic designer, and editorial photographer with 8+ years of experience shaping visual identities, architectural photography series, and motion campaigns for global culture and luxury brands.",
+  "location": "New York, NY — Worldwide",
+  "stats": [
+    { "value": "08+", "label": "Years Experience" },
+    { "value": "140+", "label": "Projects Delivered" },
+    { "value": "19", "label": "Design & Photo Awards" }
+  ],
+  "contact": {
+    "email": "hello@charlottevance.studio",
+    "phone": "+1 (555) 234-5678",
+    "studio": "245 Mercer St, Suite 4B, New York, NY 10012",
+    "availability": "Available for Q1/Q2 commissions & creative direction"
+  },
+  "socials": {
+    "instagram": "https://instagram.com/charlottevance",
+    "behance": "https://behance.net/charlottevance",
+    "dribbble": "https://dribbble.com/charlottevance",
+    "linkedin": "https://linkedin.com/in/charlottevance",
+    "vimeo": "https://vimeo.com/charlottevance"
+  },
+  "heroMedia": {
+    "portraitSrc": "media/hero/portrait-hero.svg",
+    "portraitPlaceholder": "Hero Portrait — media/hero/portrait-hero.jpg (900×1100)",
+    "reelSrc": "media/video/hero-showreel.mp4",
+    "reelPoster": "media/hero/showreel-poster.svg",
+    "reelPlaceholder": "Showreel Video — media/video/hero-showreel.mp4 (1920×1080)"
+  },
+  "services": [
+    {
+      "number": "01",
+      "title": "Editorial & Architectural Photography",
+      "description": "High-contrast monochrome and natural-light color photography for fashion houses, architectural digests, and Monograph publications.",
+      "tags": ["Medium Format", "Studio Lighting", "Location Scouting", "Color Grading"]
+    },
+    {
+      "number": "02",
+      "title": "Brand Identity & Graphic Systems",
+      "description": "Holistic visual ecosystems encompassing custom typography, packaging design, art direction, and print collateral.",
+      "tags": ["Art Direction", "Typography", "Packaging", "Brand Guidelines"]
+    },
+    {
+      "number": "03",
+      "title": "Motion Graphics & Visual Reels",
+      "description": "Cinematic title sequences, social campaign reels, and experimental 3D/2D kinetic typography loops.",
+      "tags": ["Title Design", "Cinema 4D", "After Effects", "Sound Design"]
+    }
+  ],
+  "mediaItems": [
+    {
+      "id": "work-01",
+      "title": "Brutalist Silence — Concrete & Shadow",
+      "subtitle": "Architectural Photography Series, Zurich",
+      "year": "2026",
+      "category": "photography",
+      "aspect": "tall",
+      "type": "image",
+      "src": "media/photography/brutalist-silence.svg",
+      "dimensions": "1200 × 1600",
+      "placeholderText": "Photography Placeholder — media/photography/brutalist-silence.jpg"
+    },
+    {
+      "id": "work-02",
+      "title": "Aether Botanical — Luxury Skincare Identity",
+      "subtitle": "Brand Strategy, Packaging & Graphic System",
+      "year": "2026",
+      "category": "graphics",
+      "aspect": "wide",
+      "type": "image",
+      "src": "media/graphics/aether-botanical.svg",
+      "dimensions": "1600 × 1100",
+      "placeholderText": "Graphic Design Placeholder — media/graphics/aether-botanical.jpg"
+    },
+    {
+      "id": "work-03",
+      "title": "Kinetic Chroma — 2026 Studio Showreel",
+      "subtitle": "Motion Direction & Visual Compilation",
+      "year": "2026",
+      "category": "video",
+      "aspect": "wide",
+      "type": "video",
+      "src": "media/video/showreel-2026.mp4",
+      "poster": "media/video/showreel-poster.svg",
+      "dimensions": "1920 × 1080 MP4",
+      "placeholderText": "Video Placeholder — media/video/showreel-2026.mp4"
+    },
+    {
+      "id": "work-04",
+      "title": "Solstice in Kyoto — Dusk Portraits",
+      "subtitle": "35mm Film Editorial Commission",
+      "year": "2025",
+      "category": "photography",
+      "aspect": "square",
+      "type": "image",
+      "src": "media/photography/solstice-kyoto.svg",
+      "dimensions": "1200 × 1200",
+      "placeholderText": "Photography Placeholder — media/photography/solstice-kyoto.jpg"
+    },
+    {
+      "id": "work-05",
+      "title": "Kunsthalle Exhibition Monograph",
+      "subtitle": "Swiss Grid Editorial & Poster Series",
+      "year": "2025",
+      "category": "graphics",
+      "aspect": "tall",
+      "type": "image",
+      "src": "media/graphics/kunsthalle-poster.svg",
+      "dimensions": "1200 × 1600",
+      "placeholderText": "Graphic Design Placeholder — media/graphics/kunsthalle-poster.jpg"
+    },
+    {
+      "id": "work-06",
+      "title": "Nocturne Frequency — Audio-Reactive Loop",
+      "subtitle": "Experimental Motion & Stage Visuals",
+      "year": "2025",
+      "category": "video",
+      "aspect": "square",
+      "type": "video",
+      "src": "media/video/nocturne-loop.mp4",
+      "poster": "media/video/nocturne-poster.svg",
+      "dimensions": "1080 × 1080 MP4",
+      "placeholderText": "Video Placeholder — media/video/nocturne-loop.mp4"
+    },
+    {
+      "id": "work-07",
+      "title": "Velvet Mirage — High Fashion Lookbook",
+      "subtitle": "Studio Lighting & Color Direction, Paris",
+      "year": "2025",
+      "category": "photography",
+      "aspect": "wide",
+      "type": "image",
+      "src": "media/photography/velvet-mirage.svg",
+      "dimensions": "1600 × 1000",
+      "placeholderText": "Photography Placeholder — media/photography/velvet-mirage.jpg"
+    },
+    {
+      "id": "work-08",
+      "title": "Vespera Vinyl & Sonic Packaging",
+      "subtitle": "Gatefold LP Sleeve & Custom Display Typeface",
+      "year": "2025",
+      "category": "graphics",
+      "aspect": "square",
+      "type": "image",
+      "src": "media/graphics/vespera-vinyl.svg",
+      "dimensions": "1400 × 1400",
+      "placeholderText": "Graphic Design Placeholder — media/graphics/vespera-vinyl.jpg"
+    }
+  ]
+}
+

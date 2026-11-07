@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1c1917"/>
+      <stop offset="100%" stop-color="#0c0a09"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1600" fill="url(#g1)"/>
+  <!-- Architectural Brutalist Geometry -->
+  <polygon points="180,1380 180,320 640,200 640,1380" fill="#292524" stroke="#e2b887" stroke-opacity="0.3" stroke-width="2"/>
+  <polygon points="640,200 1020,420 1020,1380 640,1380" fill="#44403c" fill-opacity="0.5" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1.5"/>
+  <line x1="180" y1="620" x2="1020" y2="740" stroke="#e2b887" stroke-opacity="0.4" stroke-width="1.5"/>
+  <line x1="180" y1="980" x2="1020" y2="1060" stroke="#e2b887" stroke-opacity="0.4" stroke-width="1.5"/>
+  <rect x="80" y="80" width="1040" height="1440" fill="none" stroke="#ffffff" stroke-opacity="0.12" stroke-dasharray="8 8"/>
+  <text x="120" y="145" fill="#e2b887" font-family="monospace" font-size="20" letter-spacing="3">PHOTOGRAPHY // 01</text>
+  <text x="120" y="180" fill="#a8a29e" font-family="monospace" font-size="16">media/photography/brutalist-silence.svg (1200×1600)</text>
+  <text x="120" y="1465" fill="#f5f5f4" font-family="Georgia, serif" font-size="38" font-style="italic">Brutalist Silence — Zurich</text>
+</svg>
+

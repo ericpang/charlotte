@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Charlotte Vance — Creative Designer &amp; Visual Photographer</title>
+  <meta name="description" content="Portfolio of Charlotte Vance — Creative Designer, Art Director, and Editorial Photographer." />
+  <!-- Google Fonts for Editorial Serif, Clean Sans, and Technical Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Subtle Ambient Background Glow -->
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- Top Navigation Bar -->
+  <header class="site-header" id="top">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo" aria-label="Home">
+        <span class="brand-monogram" data-bind="logoText">CV.</span>
+        <span class="brand-fullname" data-bind="name">Charlotte Vance</span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="#work" class="nav-link active" data-nav="work">Selected Work</a></li>
+          <li><a href="#showreel" class="nav-link" data-nav="showreel">Showreel</a></li>
+          <li><a href="#services" class="nav-link" data-nav="services">Disciplines</a></li>
+          <li><a href="#about" class="nav-link" data-nav="about">About</a></li>
+          <li><a href="#contact" class="nav-link" data-nav="contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Placeholder Blueprint Guides Toggle -->
+        <button
+          type="button"
+          class="action-pill placeholder-toggle-btn"
+          id="placeholderGuideToggle"
+          title="Toggle media/ folder path overlays on placeholders"
+          aria-pressed="true"
+        >
+          <span class="status-dot"></span>
+          <span class="pill-label">Media Guides</span>
+        </button>
+
+        <!-- Theme Switcher Button + Popover -->
+        <div class="theme-Control-wrapper">
+          <button
+            type="button"
+            class="theme-btn"
+            id="themeCycleBtn"
+            aria-label="Change website color theme"
+            title="Click to cycle color theme"
+          >
+            <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+            </svg>
+            <span class="theme-btn-text" id="currentThemeLabel">Obsidian</span>
+          </button>
+
+          <button
+            type="button"
+            class="theme-palette-trigger"
+            id="themePaletteTrigger"
+            aria-label="Open color palette menu"
+            aria-expanded="false"
+            title="Choose theme or custom accent color"
+          >
+            <span class="swatch-preview"></span>
+          </button>
+
+          <!-- Theme & Color Picker Popover -->
+          <div class="theme-popover" id="themePopover" hidden>
+            <div class="popover-header">
+              <span class="mono-label">COLOR THEME</span>
+              <span class="mono-sub">PERSISTED</span>
+            </div>
+            <div class="theme-preset-grid">
+              <button type="button" class="theme-preset-option active" data-theme-select="dark">
+                <span class="preset-dot" style="background:#0d0d0f; border-color:#e2b887;"></span>
+                <span>Obsidian Dark</span>
+              </button>
+              <button type="button" class="theme-preset-option" data-theme-select="light">
+                <span class="preset-dot" style="background:#faf8f5; border-color:#c96a4b;"></span>
+                <span>Editorial Ivory</span>
+              </button>
+              <button type="button" class="theme-preset-option" data-theme-select="sepia">
+                <span class="preset-dot" style="background:#1c1613; border-color:#e09f67;"></span>
+                <span>Warm Film</span>
+              </button>
+              <button type="button" class="theme-preset-option" data-theme-select="emerald">
+                <span class="preset-dot" style="background:#0b1512; border-color:#6ee7b7;"></span>
+                <span>Cyber Emerald</span>
+              </button>
+            </div>
+            <div class="custom-accent-row">
+              <label for="customAccentPicker" class="mono-label">CUSTOM ACCENT</label>
+              <input type="color" id="customAccentPicker" value="#e2b887" aria-label="Pick custom accent color" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <button
+          type="button"
+          class="mobile-menu-btn"
+          id="mobileMenuBtn"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="mainNav"
+        >
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="availability-badge">
+            <span class="pulse-dot"></span>
+            <span data-bind="availability">Available for freelance &amp; commissions</span>
+          </div>
+
+          <p class="hero-eyebrow mono-label" data-bind="title">
+            CREATIVE DESIGNER &amp; VISUAL PHOTOGRAPHER
+          </p>
+
+          <h1 class="hero-headline">
+            <span data-bind="tagline">Crafting visual stories through lens, light, and intentional design.</span>
+          </h1>
+
+          <p class="hero-bio" data-bind="bio">
+            Multidisciplinary art director, graphic designer, and editorial photographer shaping visual identities and photography series.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#work" class="btn btn-primary">
+              <span>Explore Portfolio</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+              </svg>
+            </a>
+            <a href="#contact" class="btn btn-outline">Get in Touch</a>
+          </div>
+
+          <!-- Dynamic Stats from JSON -->
+          <div class="hero-stats" id="heroStats">
+            <!-- Populated by app.js -->
+          </div>
+        </div>
+
+        <!-- Hero Customizable Media Placeholder (Portrait / Featured Frame) -->
+        <div class="hero-visual">
+          <div class="media-frame hero-portrait-frame" id="heroPortraitFrame">
+            <img
+              id="heroPortraitImg"
+              src="media/hero/portrait-hero.svg"
+              alt="Charlotte Vance featured studio portrait placeholder"
+              class="media-asset"
+            />
+            <div class="placeholder-overlay">
+              <span class="placeholder-badge">MEDIA FOLDER ASSET</span>
+              <code class="placeholder-path" id="heroPortraitPath">media/hero/portrait-hero.svg</code>
+            </div>
+            <div class="frame-caption-bar">
+              <span class="mono-label">FIG. 00 — PORTRAIT / HERO GRAPHIC</span>
+              <label class="swap-media-btn" title="Preview your own local image in this placeholder">
+                <input type="file" accept="image/*" class="sr-only" data-swap-target="heroPortraitImg" />
+                <span>Swap Image</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SELECTED WORK / PORTFOLIO GALLERY SECTION -->
+    <section class="section work-section" id="work">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <span class="section-index mono-label">01 // ARCHIVE &amp; SELECTED WORKS</span>
+            <h2 class="section-title">Visual Portfolio</h2>
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="filter-tabs" role="tablist" aria-label="Filter portfolio by category">
+            <button type="button" class="filter-tab active" data-filter="all" role="tab" aria-selected="true">
+              All Works <span class="tab-count" id="count-all">8</span>
+            </button>
+            <button type="button" class="filter-tab" data-filter="photography" role="tab" aria-selected="false">
+              Photography <span class="tab-count" id="count-photography">3</span>
+            </button>
+            <button type="button" class="filter-tab" data-filter="graphics" role="tab" aria-selected="false">
+              Graphic Design <span class="tab-count" id="count-graphics">3</span>
+            </button>
+            <button type="button" class="filter-tab" data-filter="video" role="tab" aria-selected="false">
+              Video &amp; Motion <span class="tab-count" id="count-video">2</span>
+            </button>
+          </div>
+        </div>
+
+        <p class="media-folder-hint">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span>All cards load dynamically from the <code>media/</code> folder via <code>data/profile.json</code>. Use <strong>Swap Media</strong> on any card to preview custom graphics or videos live.</span>
+        </p>
+
+        <!-- Dynamic Gallery Grid -->
+        <div class="portfolio-grid" id="portfolioGrid">
+          <!-- Populated dynamically by js/app.js from data/profile.json -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED VIDEO SHOWREEL SECTION -->
+    <section class="section showreel-section" id="showreel">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <span class="section-index mono-label">02 // MOTION &amp; CINEMATOGRAPHY</span>
+            <h2 class="section-title">Director's Showreel</h2>
+          </div>
+          <span class="mono-label">SOURCE: <code>media/video/hero-showreel.mp4</code></span>
+        </div>
+
+        <div class="showreel-stage media-frame" id="showreelFrame">
+          <video
+            id="heroShowreelVideo"
+            class="showreel-video media-asset"
+            poster="media/hero/showreel-poster.svg"
+            preload="metadata"
+            loop
+            muted
+            playsinline
+          >
+            <source src="media/video/hero-showreel.mp4" type="video/mp4" />
+          </video>
+
+          <div class="placeholder-overlay">
+            <span class="placeholder-badge">VIDEO PLACEHOLDER</span>
+            <code class="placeholder-path">media/video/hero-showreel.mp4</code>
+          </div>
+
+          <div class="showreel-controls-overlay">
+            <button type="button" class="reel-play-btn" id="reelPlayBtn" aria-label="Play or pause showreel">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 4 20 12 6 20 6 4"></polygon>
+              </svg>
+              <span id="reelPlayStatus">Play Reel / Preview</span>
+            </button>
+
+            <label class="swap-media-btn reel-swap-btn" title="Load a local MP4/WebM video into the showreel player">
+              <input type="file" accept="video/*,image/*" class="sr-only" id="showreelFileInput" />
+              <span>Load Custom Video / Poster</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CREATIVE DISCIPLINES / SERVICES SECTION -->
+    <section class="section services-section" id="services">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <span class="section-index mono-label">03 // CAPABILITIES</span>
+            <h2 class="section-title">Creative Disciplines</h2>
+          </div>
+          <p class="section-subtitle">Bridging still photography, graphic systems, and motion direction.</p>
+        </div>
+
+        <div class="services-grid" id="servicesGrid">
+          <!-- Populated from data/profile.json -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT & OWNER JSON PROFILE OVERVIEW -->
+    <section class="section about-section" id="about">
+      <div class="container about-grid">
+        <div class="about-card">
+          <span class="section-index mono-label">04 // ARTIST STATEMENT</span>
+          <h2 class="section-title">Design with restraint. Photograph with intent.</h2>
+          <p class="about-lead" data-bind="bio">
+            Multidisciplinary art director, graphic designer, and editorial photographer shaping visual identities and photography series.
+          </p>
+          <div class="owner-meta-list">
+            <div class="meta-item">
+              <span class="mono-label">PRINCIPAL</span>
+              <strong data-bind="name">Charlotte Vance</strong>
+            </div>
+            <div class="meta-item">
+              <span class="mono-label">BASE</span>
+              <strong data-bind="location">New York, NY — Worldwide</strong>
+            </div>
+            <div class="meta-item">
+              <span class="mono-label">DIRECT EMAIL</span>
+              <a href="mailto:hello@charlottevance.studio" data-bind="email" data-bind-href="mailto">hello@charlottevance.studio</a>
+            </div>
+            <div class="meta-item">
+              <span class="mono-label">STUDIO LINE</span>
+              <a href="tel:+15552345678" data-bind="phone" data-bind-href="tel">+1 (555) 234-5678</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live JSON Config Inspector Card -->
+        <div class="json-inspector-card">
+          <div class="inspector-top">
+            <div>
+              <span class="mono-label">LIVE DATA SOURCE</span>
+              <h3 class="inspector-title"><code>data/profile.json</code></h3>
+            </div>
+            <span class="json-status-badge" id="jsonStatusBadge">Loaded</span>
+          </div>
+          <p class="inspector-desc">
+            Owner name, contact details, email, and social media handles are dynamically populated from <code>data/profile.json</code>.
+          </p>
+          <pre class="json-code-preview" id="jsonPreviewBox">Loading profile.json...</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT & SOCIAL MEDIA SECTION -->
+    <section class="section contact-section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-info">
+          <span class="section-index mono-label">05 // INQUIRIES &amp; BOOKINGS</span>
+          <h2 class="contact-heading">Let's create something enduring together.</h2>
+          <p class="contact-subtext" data-bind="availability">
+            Available for Q1/Q2 commissions &amp; creative direction
+          </p>
+
+          <div class="contact-direct-links">
+            <a href="mailto:hello@charlottevance.studio" class="contact-big-link" data-bind="email" data-bind-href="mailto">
+              hello@charlottevance.studio
+            </a>
+            <a href="tel:+15552345678" class="contact-phone-link" data-bind="phone" data-bind-href="tel">
+              +1 (555) 234-5678
+            </a>
+            <p class="studio-address" data-bind="studio">245 Mercer St, Suite 4B, New York, NY 10012</p>
+          </div>
+
+          <div class="social-block">
+            <span class="mono-label">SOCIAL HANDLES (FROM PROFILE.JSON)</span>
+            <div class="social-pills" id="socialLinksContainer">
+              <!-- Populated dynamically from data/profile.json -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Project Inquiry Form -->
+        <form class="contact-form" id="contactForm">
+          <h3 class="form-title">Send a Project Brief</h3>
+          <div class="form-group">
+            <label for="senderName" class="mono-label">YOUR NAME</label>
+            <input type="text" id="senderName" name="senderName" required placeholder="Alex Rivera" />
+          </div>
+          <div class="form-group">
+            <label for="senderEmail" class="mono-label">YOUR EMAIL</label>
+            <input type="email" id="senderEmail" name="senderEmail" required placeholder="alex@studio.com" />
+          </div>
+          <div class="form-group">
+            <label for="projectScope" class="mono-label">DISCIPLINE</label>
+            <select id="projectScope" name="projectScope">
+              <option value="Photography Commission">Editorial / Architectural Photography</option>
+              <option value="Brand & Graphic Design">Brand Identity &amp; Graphic Design</option>
+              <option value="Video & Motion Direction">Motion Graphics / Video Reel</option>
+              <option value="Full Creative Direction">Full Campaign Creative Direction</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="projectMessage" class="mono-label">PROJECT DETAILS &amp; TIMELINE</label>
+            <textarea id="projectMessage" name="projectMessage" rows="4" required placeholder="Tell Charlotte about your vision, timeline, and deliverables..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">
+            <span>Send Inquiry</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+          <p class="form-feedback" id="formFeedback" hidden></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-monogram" data-bind="logoText">CV.</span>
+        <span>&copy; <span id="footerYear">2026</span> <span data-bind="name">Charlotte Vance</span>. All rights reserved.</span>
+      </div>
+      <div class="footer-socials" id="footerSocials">
+        <!-- Populated from profile.json -->
+      </div>
+      <a href="#top" class="back-to-top mono-label">BACK TO TOP &uarr;</a>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX MODAL FOR FULLSCREEN MEDIA VIEW -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" hidden>
+    <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+    <div class="lightbox-content">
+      <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close preview">&times;</button>
+      <div class="lightbox-stage" id="lightboxStage">
+        <!-- Injected dynamically -->
+      </div>
+      <div class="lightbox-meta">
+        <div>
+          <span class="mono-label" id="lightboxCategory">PHOTOGRAPHY</span>
+          <h3 id="lightboxTitle">Project Title</h3>
+          <p id="lightboxSubtitle">Project Subtitle</p>
+        </div>
+        <code class="placeholder-path" id="lightboxPath">media/...</code>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
+
